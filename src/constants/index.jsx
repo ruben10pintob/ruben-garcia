@@ -50,11 +50,12 @@ export const PROJECTS = [
   },
   {
     id: 3,
-    name: "Ecommerce",
+    name: "Fitness application",
     description:
-      "In progress...",
+      "Front end project built with React, TypeScript and Tailwind to advertise on internet and show his services",
     image: projectImage3,
-    githubLink: "#",
+    githubLink: "https://github.com/ruben10pintob/fitness-app",
+    projectLink: "https://fitness-app-pi-seven.vercel.app/"
   }
 ];
 
