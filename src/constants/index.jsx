@@ -16,9 +16,9 @@ import { RiTailwindCssFill } from "react-icons/ri";
 
 export const NAVIGATION_LINKS = [
   { label: "Projects", href: "#projects" },
-  { label: "Bio", href: "#bio" },
+  { label: "About", href: "#bio" },
   { label: "Skills", href: "#skills" },
-  { label: "Work Experience", href: "#work" },
+  { label: "Experience", href: "#work" },
   { label: "Education", href: "#education" },
   { label: "Contact", href: "#contact" },
 ];
@@ -27,7 +27,7 @@ export const HERO = {
   name: "RUBÉN GARCÍA",
   greet: "Hello there! 👋🏻",
   description:
-    "Frontend developer since 2021, focused on building web aplicactions robust, maintainable, and high-perfonmace. I work primarily with JavaScript, TypeScript, React and tailwind.",
+    "Frontend developer since 2021, focused on building robust, maintainable, and high-performance web applications. I work primarily with JavaScript, TypeScript, React and Tailwind CSS.",
 };
 
 export const PROJECTS = [

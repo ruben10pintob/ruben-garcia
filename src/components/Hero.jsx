@@ -1,5 +1,5 @@
 import { HERO } from "../constants";
-import ruben from "../assets/ruben.jpg";
+import ruben from "../assets/rubenv3.jpg";
 import { motion } from "framer-motion";
 
 export const Hero = () => {
