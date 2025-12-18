@@ -11,15 +11,15 @@ export const Hero = () => {
                 transition={{ duration: 1 }} 
                 className="w-full md:w-1/2">
             
-                <h2 className="my-8 p-2 text-4xl font-bold md:text-5xl lg:text-[7rem]">
+                <h2 className="my-8 p-2 text-5xl font-bold md:text-6xl lg:text-8xl bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
                     {HERO.name}
                 </h2>
 
-                <p className="p-2 text-3xl tracking-tighter lg:text-4xl">
+                <p className="p-2 text-3xl tracking-tighter lg:text-4xl text-gray-300">
                     {HERO.greet}
                 </p>
 
-                <p className="mb-1 p-2 text-xl">
+                <p className="mb-1 p-2 text-xl text-gray-400 leading-relaxed">
                     {HERO.description}                    
                 </p>
             </motion.div>

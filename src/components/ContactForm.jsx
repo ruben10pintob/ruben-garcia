@@ -70,27 +70,38 @@ export const ContactForm = () => {
     }
     
     return (
-        <div
+        <section
             id="contact"
-            className="p-4 lg:w-3/4"
+            className="container mx-auto px-4 py-20"
         >
             
             <Toaster />
 
-            <motion.h2
-                initial={{ opacity: 0, y: -20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1 }} 
-                className="my-8 text-center text-4xl font-semibold tracking-tighter">
-                Let's Connect
-            </motion.h2>
+            <div className="text-center mb-16">
+                <motion.h2
+                    initial={{ opacity: 0, y: -20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 1 }} 
+                    className="text-4xl lg:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+                    Let's Connect
+                </motion.h2>
+                <p className="text-gray-400 max-w-2xl mx-auto text-lg">
+                    Ready to collaborate? Send me a message and let's discuss your next project
+                </p>
+            </div>
 
-            <motion.form
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                transition={{ duration: 0.8, delay: 0.7 }}
-                onSubmit={handleSubmit}
+            <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                className="max-w-4xl mx-auto bg-white/5 backdrop-blur-lg rounded-2xl border border-white/10 p-8"
             >
+                <motion.form
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    transition={{ duration: 0.6, delay: 0.4 }}
+                    onSubmit={handleSubmit}
+                >
                 <div className="mb-4 flex space-x-4">
                     <div className="lg:w-1/2">
                         <input 
@@ -100,7 +111,7 @@ export const ContactForm = () => {
                             value={formData.name}
                             placeholder="Name"
                             onChange={handleChange}
-                            className="mb-8 w-full appearance-none rounded-lg border border-stone-50/30 bg-transparent px-3 py-2 text-sm focus:border-stone-400 focus:outline-none" 
+                            className="mb-4 w-full appearance-none rounded-lg border border-white/20 bg-white/5 px-4 py-3 text-white placeholder-gray-400 focus:border-blue-400 focus:outline-none focus:ring-1 focus:ring-blue-400 transition-all duration-300" 
                         />
                         {errors.name && ( 
                             <motion.p 
@@ -120,7 +131,7 @@ export const ContactForm = () => {
                             value={formData.email}
                             placeholder="Email"
                             onChange={handleChange}
-                            className="mb-8 w-full appearance-none rounded-lg border border-stone-50/30 bg-transparent px-3 py-2 text-sm focus:border-stone-400 focus:outline-none" 
+                            className="mb-4 w-full appearance-none rounded-lg border border-white/20 bg-white/5 px-4 py-3 text-white placeholder-gray-400 focus:border-blue-400 focus:outline-none focus:ring-1 focus:ring-blue-400 transition-all duration-300" 
                         />
                         {errors.email && ( 
                             <motion.p 
@@ -140,7 +151,7 @@ export const ContactForm = () => {
                             value={formData.message}
                             placeholder="Message"
                             onChange={handleChange}
-                            className="mb-8 w-full appearance-none rounded-lg border border-stone-50/30 bg-transparent px-3 py-2 text-sm focus:border-stone-400 focus:outline-none"
+                            className="mb-4 w-full appearance-none rounded-lg border border-white/20 bg-white/5 px-4 py-3 text-white placeholder-gray-400 focus:border-blue-400 focus:outline-none focus:ring-1 focus:ring-blue-400 transition-all duration-300 resize-none"
                             rows="6" 
                         />
                         {errors.message && ( 
@@ -156,16 +167,15 @@ export const ContactForm = () => {
 
                     <button
                         type="submit"
-                        className={`mb-8 w-full rounded border-stone-50/30 bg-stone-200 px-4 py-2 text-sm font-semibold text-stone-900 hover:bg-stone-300 ${ isSending ? "cursor-not-allowed opacity-50" : "" }`}
+                        className={`w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-4 px-6 rounded-lg transition-all duration-300 flex items-center justify-center gap-2 ${ isSending ? "cursor-not-allowed opacity-50" : "hover:shadow-lg hover:shadow-blue-500/20" }`}
                         disabled={isSending}
                     >
-                        <div className="flex items-center justify-center gap-2">
-                            {isSending ? "Sending" : "Send"}
-                            <FiSend />
-                        </div>
+                        {isSending ? "Sending..." : "Send Message"}
+                        <FiSend className={isSending ? "animate-pulse" : ""} />
                     </button>
-            </motion.form>
-        </div>
+                </motion.form>
+            </motion.div>
+        </section>
     )
 
 }
