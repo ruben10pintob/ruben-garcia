@@ -27,7 +27,7 @@ export const HERO = {
   name: "RUBÉN GARCÍA",
   greet: "Hello there! 👋🏻",
   description:
-    "I'm a passionate Frontend Developer with 4+ years of experience crafting modern, responsive web applications. I work with React, TypeScript, JavaScript, and Tailwind CSS to create seamless user experiences that drive business results.",
+    "I'm a passionate Frontend Developer since 2020, specializing in crafting modern, responsive web applications. I work with React, TypeScript, JavaScript, and Tailwind CSS to create seamless user experiences that drive business results.",
 };
 
 export const PROJECTS = [
@@ -64,36 +64,43 @@ export const BIO = [
   "I launched my professional career at a technology startup where I worked for 3 months, learning how to perform in a professional environment while working with technologies like React, JavaScript, and TypeScript. I then continued my career in the banking sector, where I currently work with web components using LitElement and MVC architecture, developing new frontend applications and functionalities for management environments.",
 ];
 
+// Función para calcular años de experiencia
+export const calculateYearsOfExperience = (startYear) => {
+  const currentYear = new Date().getFullYear();
+  const years = currentYear - startYear;
+  return years > 1 ? `${years} years` : `${years} year`;
+};
+
 export const SKILLS = [
   {
     icon: <RiReactjsLine className="text-4xl text-cyan-400 lg:text-5xl" />,
     name: "React",
-    experience: "3+ years",
+    startYear: 2022,
   },
   {
     icon: <RiJavascriptFill className="text-4xl text-yellow-400 lg:text-5xl" />,
     name: "JavaScript",
-    experience: "5+ years",
+    startYear: 2020,
   },
   {
     icon: <SiTypescript className="text-4xl text-blue-700 lg:text-5xl" />,
     name: "TypeScript",
-    experience: "2+ years",
+    startYear: 2022,
   },
   {
     icon: <SiJira className="text-4xl text-blue-500 lg:text-5xl" />,
     name: "Jira",
-    experience: "4+ years",
+    startYear: 2020,
   },
   {
     icon: <FaBitbucket className="text-4xl text-blue-500 lg:text-5xl" />,
     name: "Bitbucket",
-    experience: "4+ years",
+    startYear: 2020,
   },
   {
     icon: <RiTailwindCssFill className="text-4xl text-blue-500 lg:text-5xl" />,
     name: "Tailwind",
-    experience: "1+ year",
+    startYear: 2023,
   },
 ];
 
