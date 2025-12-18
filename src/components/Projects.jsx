@@ -1,11 +1,10 @@
 import { FaLink, FaGithub } from "react-icons/fa";
 import { PROJECTS } from "../constants";
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useIsMobile } from "../hooks/useTouchDevice";
 
 export const Projects = () => {
-
-    const [isVisible, setIsVisible] = useState(false);
+    const isMobile = useIsMobile();
 
     return (
         <section 
@@ -48,46 +47,81 @@ export const Projects = () => {
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/70 to-transparent"></div>
                             </div>
 
-                            <motion.div
-                                initial={{ opacity: 0, y: 20 }}
-                                whileHover={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.3 }}
-                                className="absolute inset-0 flex flex-col justify-end p-6 text-white opacity-100 md:opacity-0 md:group-hover:opacity-100"
-                            >
-                                <h3 className="text-2xl font-bold mb-3 text-cyan-400">
-                                    { name }
-                                </h3>
-                                <p className="text-white mb-6 leading-relaxed text-sm">
-                                    { description }
-                                </p>
+                            {/* Contenido condicional basado en tipo de dispositivo */}
+                            {isMobile ? (
+                                // Dispositivos táctiles: contenido siempre visible
+                                <div className="absolute inset-0 flex flex-col justify-end p-6 text-white">
+                                    <h3 className="text-2xl font-bold mb-3 text-cyan-400">
+                                        { name }
+                                    </h3>
+                                    <p className="text-white mb-6 leading-relaxed text-sm">
+                                        { description }
+                                    </p>
 
-                                <div className="flex items-center gap-4">
-                                    <a
-                                        className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-lg text-white font-medium transition-colors duration-300" 
-                                        href={ githubLink } 
-                                        target="_blank" 
-                                        rel="noopener noreferrer"
-                                    >
-                                        <FaGithub />
-                                        <span>Code</span>
-                                    </a>
-
-                                    {projectLink && (
+                                    <div className="flex items-center gap-4">
                                         <a
-                                            className="flex items-center gap-2 bg-transparent border border-white/30 hover:bg-white/10 px-4 py-2 rounded-lg text-white font-medium transition-all duration-300" 
-                                            href={ projectLink } 
+                                            className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-lg text-white font-medium transition-colors duration-300" 
+                                            href={ githubLink } 
                                             target="_blank" 
                                             rel="noopener noreferrer"
                                         >
-                                            <FaLink />
-                                            <span>Demo</span>
+                                            <FaGithub />
+                                            <span>Code</span>
                                         </a>
-                                    )}
 
-                                   
+                                        {projectLink && (
+                                            <a
+                                                className="flex items-center gap-2 bg-transparent border border-white/30 hover:bg-white/10 px-4 py-2 rounded-lg text-white font-medium transition-all duration-300" 
+                                                href={ projectLink } 
+                                                target="_blank" 
+                                                rel="noopener noreferrer"
+                                            >
+                                                <FaLink />
+                                                <span>Demo</span>
+                                            </a>
+                                        )}
+                                    </div>
                                 </div>
-                                
-                            </motion.div>
+                            ) : (
+                                // Dispositivos no táctiles: hover overlay
+                                <motion.div
+                                    initial={{ opacity: 0, y: 20 }}
+                                    whileHover={{ opacity: 1, y: 0 }}
+                                    transition={{ duration: 0.3 }}
+                                    className="absolute inset-0 flex flex-col justify-end p-6 text-white opacity-0 group-hover:opacity-100"
+                                >
+                                    <h3 className="text-2xl font-bold mb-3 text-cyan-400">
+                                        { name }
+                                    </h3>
+                                    <p className="text-white mb-6 leading-relaxed text-sm">
+                                        { description }
+                                    </p>
+
+                                    <div className="flex items-center gap-4">
+                                        <a
+                                            className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-lg text-white font-medium transition-colors duration-300" 
+                                            href={ githubLink } 
+                                            target="_blank" 
+                                            rel="noopener noreferrer"
+                                        >
+                                            <FaGithub />
+                                            <span>Code</span>
+                                        </a>
+
+                                        {projectLink && (
+                                            <a
+                                                className="flex items-center gap-2 bg-transparent border border-white/30 hover:bg-white/10 px-4 py-2 rounded-lg text-white font-medium transition-all duration-300" 
+                                                href={ projectLink } 
+                                                target="_blank" 
+                                                rel="noopener noreferrer"
+                                            >
+                                                <FaLink />
+                                                <span>Demo</span>
+                                            </a>
+                                        )}
+                                    </div>
+                                </motion.div>
+                            )}
                         </motion.div>
                     )
                 )}
