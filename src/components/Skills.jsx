@@ -36,34 +36,40 @@ export const Skills = () => {
             className="container mx-auto"
             id="skills"
         >
-            <h2 className="mb-12 mt-20 text-center text-4xl font-semibold">
-                Skills
-            </h2>
+            <div className="text-center mb-16">
+                <h2 className="text-4xl lg:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+                    Skills & Technologies
+                </h2>
+                <p className="text-gray-400 max-w-2xl mx-auto text-lg">
+                    Technologies I work with daily to create robust and scalable solutions
+                </p>
+            </div>
 
             <motion.div 
                 initial="hidden"
                 whileInView="visible"
                 variants={ containerVariant }
-                className="mx-2 flex flex-col rounded-3xl px-4 py-2 lg:px-20 border border-stone-50/30"
+                className="max-w-6xl mx-auto bg-white/5 backdrop-blur-lg rounded-2xl border border-white/10 p-8"
             >
 
             { 
                 SKILLS.map(( { experience, icon, name } = skill, index ) => (
                     <motion.div
                         variants={ itemsVariants }
-                        className={`py-6 flex items-center justify-between ${ index !== SKILLS.length -1 ? "border-b border-stone-50/30" : "" }`}
+                        className={`py-6 flex items-center justify-between hover:bg-white/5 rounded-xl transition-all duration-300 px-4 group ${ index !== SKILLS.length -1 ? "border-b border-white/10" : "" }`}
                         key={index}
+                        whileHover={{ x: 5 }}
                     >
                         <div className="flex items-center">
-
-                            { icon }
-                            <h3 className="px-6 text-lg lg:text-2xl">
+                            <div className="text-3xl mr-6 p-3 rounded-xl bg-gradient-to-br from-blue-500/20 to-purple-500/20 border border-white/10 group-hover:border-blue-400/30 transition-colors duration-300">
+                                { icon }
+                            </div>
+                            <h3 className="text-xl lg:text-2xl font-semibold text-white group-hover:text-blue-300 transition-colors duration-300">
                                 { name }
                             </h3>
-
                         </div>
 
-                        <div className="text-md font-semibold lg:text-xl">
+                        <div className="text-sm font-medium text-gray-300 bg-white/10 px-4 py-2 rounded-full group-hover:bg-blue-400/20 group-hover:text-white transition-all duration-300">
                             { experience }
                         </div>
 
