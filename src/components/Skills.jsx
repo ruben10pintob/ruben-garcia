@@ -1,4 +1,4 @@
-import { SKILLS } from "../constants";
+import { SKILLS, calculateYearsOfExperience } from "../constants";
 import { motion } from "framer-motion";
 
 const containerVariant = {
@@ -53,7 +53,7 @@ export const Skills = () => {
             >
 
             { 
-                SKILLS.map(( { experience, icon, name } = skill, index ) => (
+                SKILLS.map(( { startYear, icon, name } = skill, index ) => (
                     <motion.div
                         variants={ itemsVariants }
                         className={`py-6 flex items-center justify-between hover:bg-white/5 rounded-xl transition-all duration-300 px-4 group ${ index !== SKILLS.length -1 ? "border-b border-white/10" : "" }`}
@@ -69,8 +69,8 @@ export const Skills = () => {
                             </h3>
                         </div>
 
-                        <div className="text-sm font-medium text-gray-300 bg-white/10 px-4 py-2 rounded-full group-hover:bg-blue-400/20 group-hover:text-white transition-all duration-300">
-                            { experience }
+                        <div className="text-md font-semibold lg:text-xl">
+                            { calculateYearsOfExperience(startYear) }
                         </div>
 
                     </motion.div>
