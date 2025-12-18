@@ -1,4 +1,4 @@
-import { SKILLS } from "../constants";
+import { SKILLS, calculateYearsOfExperience } from "../constants";
 import { motion } from "framer-motion";
 
 const containerVariant = {
@@ -48,7 +48,7 @@ export const Skills = () => {
             >
 
             { 
-                SKILLS.map(( { experience, icon, name } = skill, index ) => (
+                SKILLS.map(( { startYear, icon, name } = skill, index ) => (
                     <motion.div
                         variants={ itemsVariants }
                         className={`py-6 flex items-center justify-between ${ index !== SKILLS.length -1 ? "border-b border-stone-50/30" : "" }`}
@@ -64,7 +64,7 @@ export const Skills = () => {
                         </div>
 
                         <div className="text-md font-semibold lg:text-xl">
-                            { experience }
+                            { calculateYearsOfExperience(startYear) }
                         </div>
 
                     </motion.div>
